@@ -2,13 +2,13 @@
 ; pool name ('www' here)
 [@@USER@@]
 
-listen = /var/run/@@DOMAIN@@_fpm.sock
+listen = /var/run/@@SOCKET@@_fpm.sock
 
 ;listen.backlog = -1
 listen.allowed_clients = 127.0.0.1
 
-listen.owner = www-data
-listen.group = www-data
+listen.owner = www
+listen.group = www
 ;listen.mode = 0660
 
 user = @@USER@@
@@ -50,4 +50,4 @@ chdir = /
 ;catch_workers_output = yes
  
 php_admin_value[session.save_path] = "@@HOME_DIR@@/_sessions"
-php_admin_value[open_basedir] = "@@HOME_DIR@@:/usr/share/pear:/usr/share/php:/tmp:/usr/local/lib/php:/var/run"
+php_admin_value[open_basedir] = "@@HOME_DIR@@:/usr/local/share/pear:/usr/share/php:/tmp:/usr/local/lib/php:/var/run"
